@@ -396,7 +396,7 @@ namespace NuGet.Commands
 
                 restoreTime.Stop();
 
-                var updatedHash = _request.DependencyGraphSpec.GetHash2();
+                var updatedHash = _request.DependencyGraphSpec?.GetHash2() ?? 0;
                 if (originalHashValue != updatedHash)
                 {
                     throw new ArgumentException("Well this sucks! 3" + Environment.NewLine + $"For{_request.Project.Name}, old hash{originalHashValue}, new hash {updatedHash}");
